@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính điểm đại học</title>
+</head>
+<body>
+<h1> Tính Điểm ĐH khối D</h1>
+<form action="">
+    <table>
+        <tr>
+            <td><p> Môn Toán</p></td>
+            <td><input type='text' id="s1"></td>
+        </tr>
+        <tr>
+            <td><p> Môn Văn</p></td>
+            <td><input type="text" id="s2"></td>
+        </tr>
+        <tr>
+            <td><p> Môn Anh</p></td>
+            <td><input type='text' id="s3"></td>
+        </tr>
+        <tr>
+            <td><p> Khu vực</p></td>
+            <td>
+                <select onchange="auto()" id="s4" >
+                    <option value="KV1"> KV1</option>
+                    <option value="KV2">KV2</option>
+                    <option value="KV2-NT">KV2-NT</option>
+                    <option value="KV3">KV3</option>
+                </select>
+        </tr>
+    </table>
+</form>
+
+<input type='button' value="Tính điểm" onclick="KQ()">
+
+<h1 style="color: red" id="s9"></h1>
+</body>
+<script>
+let m;
+    function auto() {
+        let t = document.getElementById('s4').value;
+        console.log('giá trị', t)
+        // let m; khai báo biến m ở chổ này thì báo m not defined????
+        switch (t) {
+            case 'KV1':
+                m = 0.75
+                break;
+            case 'KV2-NT':
+                m = 0.5
+                break;
+                case 'KV2':
+                    m=0.25
+                break;
+                    case 'KV3':
+                        m=0
+                break;
+        }
+    }
+
+
+    function KQ() {
+        let a = document.getElementById('s1').value;
+        let x = parseFloat(a)
+        let b = document.getElementById('s2').value;
+        let y = parseFloat(b)
+        let c = document.getElementById('s3').value;
+        let z = parseFloat(c)
+        d = x + y + z + m
+        console.log('giá trị ', d)
+        document.getElementById('s9').innerHTML='Tổng điểm ĐH khối D của bạn là: '+d
+    }
+
+
+</script>
+</html>
